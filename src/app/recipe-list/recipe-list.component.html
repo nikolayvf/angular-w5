@@ -2,9 +2,12 @@
   <input
     [(ngModel)]="recipeInputValue"
     type="text"
-    placeholder="Search by recipe name"
+    placeholder="Enter recipe name"
     (input)="updateFilteredCollection()"
   />
+  <button (click)="toggleShowFavorites()">
+    {{ showFavoritesOnly ? "Show All" : "Show Favorites" }}
+  </button>
 </div>
 
 <div class="recipe-detaillist">
@@ -14,7 +17,13 @@
   >
     <div class="left-side">
       <img [src]="detailObject.image" alt="{{ detailObject.name }}" />
-      <div class="recipe-title">{{ detailObject.name }}</div>
+      <div class="recipe-title">
+        {{ detailObject.name }}
+        <span class="heart-icon" (click)="toggleFavorite(detailObject)">
+          <ng-container *ngIf="detailObject.favorite"> ❤️ </ng-container>
+          <ng-container *ngIf="!detailObject.favorite"> 🤍 </ng-container>
+        </span>
+      </div>
     </div>
     <div class="right-side">
       <h4>Ingredients:</h4>
