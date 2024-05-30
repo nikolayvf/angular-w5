@@ -1,0 +1,14 @@
+<div class="recipe-detail">
+  <div class="left-side">
+    <img [src]="image" alt="{{ inputDetail }}" />
+    <div class="recipe-title">{{ inputDetail }}</div>
+  </div>
+  <div class="right-side">
+    <h4>Ingredients:</h4>
+    <p>{{ ingredients.join(", ") }}</p>
+    <h4>Cuisine:</h4>
+    <p>{{ cuisine }}</p>
+    <h4>Instructions:</h4>
+    <p>{{ instructions }}</p>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="recipe-input">
+  <input
+    [(ngModel)]="recipeInputValue"
+    type="text"
+    placeholder="Search by recipe name"
+    (input)="updateFilteredCollection()"
+  />
+</div>
+
+<div class="recipe-detaillist">
+  <div
+    *ngFor="let detailObject of filteredCollection; trackBy: trackById"
+    class="recipe-detail"
+  >
+    <div class="left-side">
+      <img [src]="detailObject.image" alt="{{ detailObject.name }}" />
+      <div class="recipe-title">{{ detailObject.name }}</div>
+    </div>
+    <div class="right-side">
+      <h4>Ingredients:</h4>
+      <p>{{ detailObject.ingredients.join(", ") }}</p>
+      <h4>Cuisine:</h4>
+      <p>{{ detailObject.cuisine }}</p>
+      <h4>Instructions:</h4>
+      <p>{{ detailObject.instructions }}</p>
+    </div>
+  </div>
+</div>
